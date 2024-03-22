@@ -227,13 +227,10 @@ def node_recent(section, node_name, args=None):
                                                  'operator': 'is'})
     etree.SubElement(rule, 'value').text = section.name
     if ((section.section_type == v.PLEX_TYPE_SHOW and
-            utils.settings('TVShowWatched') == 'false') or
+            utils.settings('RecentTvShowWatched') == 'false') or
         (section.section_type == v.PLEX_TYPE_MOVIE and
-            utils.settings('MovieShowWatched') == 'false')):
-        # Adds an additional rule if user deactivated the PKC setting
-        # "Recently Added: Also show already watched episodes"
-        # or
-        # "Recently Added: Also show already watched episodes"
+            utils.settings('RecentMovieShowWatched') == 'false')):
+        # Adds additional rule to hide watched episodes/movies
         rule = etree.SubElement(xml, 'rule', attrib={'field': 'playcount',
                                                      'operator': 'is'})
         etree.SubElement(rule, 'value').text = '0'
@@ -272,6 +269,14 @@ def node_recommended(section, node_name, args=None):
     rule = etree.SubElement(xml, 'rule', attrib={'field': 'tag',
                                                  'operator': 'is'})
     etree.SubElement(rule, 'value').text = section.name
+    if ((section.section_type == v.PLEX_TYPE_SHOW and
+            utils.settings('RecommendedTvShowWatched') == 'false') or
+        (section.section_type == v.PLEX_TYPE_MOVIE and
+            utils.settings('RecommendedMovieShowWatched') == 'false')):
+        # Adds additional rule to hide watched episodes/movies
+        rule = etree.SubElement(xml, 'rule', attrib={'field': 'playcount',
+                                                     'operator': 'is'})
+        etree.SubElement(rule, 'value').text = '0'
     # rule = etree.SubElement(xml, 'rule', attrib={'field': 'rating',
     #                                              'operator': 'greaterthan'})
     # etree.SubElement(rule, 'value').text = unicode(RECOMMENDED_SCORE_LOWER_BOUND)
@@ -330,6 +335,14 @@ def node_random(section, node_name, args=None):
     rule = etree.SubElement(xml, 'rule', attrib={'field': 'tag',
                                                  'operator': 'is'})
     etree.SubElement(rule, 'value').text = section.name
+    if ((section.section_type == v.PLEX_TYPE_SHOW and
+            utils.settings('RandomTvShowWatched') == 'false') or
+        (section.section_type == v.PLEX_TYPE_MOVIE and
+            utils.settings('RandomMovieShowWatched') == 'false')):
+        # Adds additional rule to hide watched episodes/movies
+        rule = etree.SubElement(xml, 'rule', attrib={'field': 'playcount',
+                                                     'operator': 'is'})
+        etree.SubElement(rule, 'value').text = '0'
     etree.SubElement(xml, 'label').text = node_name
     etree.SubElement(xml, 'icon').text = ICON_PATH
     etree.SubElement(xml, 'content').text = section.content

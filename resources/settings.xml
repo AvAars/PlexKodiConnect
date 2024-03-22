@@ -179,12 +179,17 @@
         <setting type="lsep" label="39074" /><!-- TV Shows -->
         <setting id="OnDeckTvAppendShow" type="bool" label="39047" default="false" /><!--On Deck view: Append show title to episode-->
         <setting id="OnDeckTvAppendSeason" type="bool" label="39048" default="false" /><!--On Deck view: Append season number to episode-->
-        <setting id="TVShowWatched" type="bool" label="39064" default="true" /><!--Recently Added: Also show already watched episodes-->
         <setting id="RecentTvAppendShow" type="bool" label="39059" default="false" /><!--Recently added: Append show title to episode-->
         <setting id="RecentTvAppendSeason" type="bool" label="39060" default="false" /><!--Recently Added: Append season- and episode-number SxxExx-->
         <setting type="sep" />
-        <setting type="lsep" label="30302" /><!-- Movies -->
-        <setting id="MovieShowWatched" type="bool" label="39066" default="true" /><!--Recently Added: Also show already watched episodes-->
+        <setting type="lsep" label="39064" /><!-- Show already watched shows/episodes -->
+        <setting id="RecentTvShowWatched" type="bool" label="30174" default="true" /><!--Recently Added-->
+        <setting id="RecommendedTvShowWatched" type="bool" label="30230" default="true" /><!--Recommended-->
+        <setting id="RandomTvShowWatched" type="bool" label="30227" default="true" /><!--Random-->
+        <setting type="lsep" label="39066" /><!-- Show already watched movies -->
+        <setting id="RecentMovieShowWatched" type="bool" label="30174" default="true" /><!--Recently Added-->
+        <setting id="RecommendedMovieShowWatched" type="bool" label="30230" default="true" /><!--Recommended-->
+        <setting id="RandomMovieShowWatched" type="bool" label="30227" default="true" /><!--Random-->
         <setting type="sep" />
         <setting type="lsep" label="30022" /><!-- Advanced -->
 	</category>
