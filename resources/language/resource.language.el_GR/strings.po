@@ -1098,7 +1098,7 @@ msgstr ""
 
 # PKC Settings - Appearance Tweaks
 msgctxt "#39064"
-msgid "Recently Added: Also show already watched episodes"
+msgid "Show already watched shows and episodes"
 msgstr ""
 
 # PKC Settings - Appearance Tweaks
@@ -1108,7 +1108,7 @@ msgstr ""
 
 # PKC Settings - Appearance Tweaks
 msgctxt "#39066"
-msgid "Recently Added: Also show already watched movies"
+msgid "Show already watched movies"
 msgstr ""
 
 # PKC Settings - Connection

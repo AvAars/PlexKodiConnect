@@ -1141,8 +1141,8 @@ msgstr "Forceer transcoden van Hi10P"
 
 # PKC Settings - Appearance Tweaks
 msgctxt "#39064"
-msgid "Recently Added: Also show already watched episodes"
-msgstr "Onlangs Toegevoegd: Toon ook al bekeken afleveringen"
+msgid "Show already watched shows and episodes"
+msgstr "Toon reeds bekeken series en afleveringen"
 
 # PKC Settings - Appearance Tweaks
 msgctxt "#39065"
@@ -1151,8 +1151,8 @@ msgstr "Forceer Kodi thema reset bij afspelen stoppen"
 
 # PKC Settings - Appearance Tweaks
 msgctxt "#39066"
-msgid "Recently Added: Also show already watched movies"
-msgstr "Pas toegevoegd: Toon tevens de reeds bekeken films."
+msgid "Show already watched movies"
+msgstr "Toon reeds bekeken films"
 
 # PKC Settings - Connection
 msgctxt "#39067"

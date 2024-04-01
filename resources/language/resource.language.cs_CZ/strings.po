@@ -1135,8 +1135,8 @@ msgstr "Vynutit překódování Hi10P"
 
 # PKC Settings - Appearance Tweaks
 msgctxt "#39064"
-msgid "Recently Added: Also show already watched episodes"
-msgstr "Naposledy přidané: Zobrazovat také shlédnuté epizody"
+msgid "Show already watched shows and episodes"
+msgstr "Zobrazovat také shlédnuté seriály a epizody"
 
 # PKC Settings - Appearance Tweaks
 msgctxt "#39065"
@@ -1145,8 +1145,8 @@ msgstr "Vynutit obnovení vzhledu Kodi po skončení přehrávání"
 
 # PKC Settings - Appearance Tweaks
 msgctxt "#39066"
-msgid "Recently Added: Also show already watched movies"
-msgstr "Naposledy přidané: Zobrazovat také shlédnuté filmy"
+msgid "Show already watched movies"
+msgstr "Zobrazovat také shlédnuté filmy"
 
 # PKC Settings - Connection
 msgctxt "#39067"

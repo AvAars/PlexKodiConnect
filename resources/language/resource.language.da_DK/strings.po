@@ -1138,8 +1138,8 @@ msgstr "Transcode Hi10P"
 
 # PKC Settings - Appearance Tweaks
 msgctxt "#39064"
-msgid "Recently Added: Also show already watched episodes"
-msgstr "Senest tilføjet: Vis allerede set episoder"
+msgid "Show already watched shows and episodes"
+msgstr "Vis allerede sete serier og episoder"
 
 # PKC Settings - Appearance Tweaks
 msgctxt "#39065"
@@ -1148,8 +1148,8 @@ msgstr "Gennemtving genindlæsning af Kodi skin når afspilning stopper"
 
 # PKC Settings - Appearance Tweaks
 msgctxt "#39066"
-msgid "Recently Added: Also show already watched movies"
-msgstr "Nyligt tilføjede: Vis også allerede sete film"
+msgid "Show already watched movies"
+msgstr "Vis allerede sete film"
 
 # PKC Settings - Connection
 msgctxt "#39067"

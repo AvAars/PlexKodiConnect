@@ -1159,8 +1159,8 @@ msgstr "Hi10p Codec Transkodierung erzwingen"
 
 # PKC Settings - Appearance Tweaks
 msgctxt "#39064"
-msgid "Recently Added: Also show already watched episodes"
-msgstr "\"Zuletzt hinzugefügt\": gesehene Episoden anzeigen"
+msgid "Show already watched shows and episodes"
+msgstr "Gesehene Sendungen und Episoden anzeigen"
 
 # PKC Settings - Appearance Tweaks
 msgctxt "#39065"
@@ -1169,8 +1169,8 @@ msgstr "Kodi Skin nach Playback-Stop neu laden"
 
 # PKC Settings - Appearance Tweaks
 msgctxt "#39066"
-msgid "Recently Added: Also show already watched movies"
-msgstr "\"Zuletzt hinzugefügt\": gesehene Filme anzeigen"
+msgid "Show already watched movies"
+msgstr "Gesehene Filme anzeigen"
 
 # PKC Settings - Connection
 msgctxt "#39067"
