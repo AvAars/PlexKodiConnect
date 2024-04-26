@@ -176,7 +176,7 @@ def _generate_content(api):
                 'season': api.season_number(),
                 'sorttitle': api.sorttitle(),  # 'Titans (2018)'
                 'studio': api.studios(),
-                'tag': [],  # List of tags this item belongs to
+                'tag': api.labels(),  # List of tags this item belongs to
                 'tagline': api.tagline(),
                 'thumbnail': '',  # e.g. 'image://https%3a%2f%2fassets.tv'
                 'title': api.title(),  # 'Titans (2018)'
@@ -249,7 +249,7 @@ def _generate_content(api):
     return item
 
 
-def prepare_listitem(item):
+def prepare_listitem(item, listing_key = None):
     """helper to convert kodi output from json api to compatible format for
     listitems"""
     try:
@@ -315,6 +315,9 @@ def prepare_listitem(item):
         properties["DBTYPE"] = item["type"]
         properties["type"] = item["type"]
         properties["path"] = item.get("file")
+
+        if listing_key is not None:
+            properties["LISTINGKEY"] = listing_key
 
         # cast
         list_cast = []
@@ -522,6 +525,7 @@ def create_listitem(item, as_tuple=True, offscreen=True,
                 "sorttitle": item.get("sorttitle"),
                 "duration": item.get("duration"),
                 "studio": item.get("studio"),
+                "tag": item.get("tag"),
                 "tagline": item.get("tagline"),
                 "writer": item.get("writer"),
                 "tvshowtitle": item.get("tvshowtitle"),

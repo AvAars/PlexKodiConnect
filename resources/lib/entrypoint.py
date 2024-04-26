@@ -251,7 +251,7 @@ def show_listing(xml, plex_type=None, section_id=None, synched=True, key=None):
         # Need to chain keys for navigation
         widgets.KEY = key
     # Process all items to show
-    all_items = mass_api(xml)
+    all_items = mass_api(xml, check_by_guid=key == "watchlist")
 
     if key == "watchlist":
         # filter out items that are not in the kodi db (items that will not be playable)
@@ -259,10 +259,11 @@ def show_listing(xml, plex_type=None, section_id=None, synched=True, key=None):
 
         # filter out items in the wrong section id when it's specified
         if section_id is not None:
-            all_items = [item for item in all_items if item.section_id == utils.cast(int, section_id)]
+            all_items = [item for item in all_items
+                         if item.section_id == utils.cast(int, section_id)]
 
     all_items = [widgets.generate_item(api) for api in all_items]
-    all_items = [widgets.prepare_listitem(item) for item in all_items]
+    all_items = [widgets.prepare_listitem(item, key) for item in all_items]
     # fill that listing...
     all_items = [widgets.create_listitem(item) for item in all_items]
     xbmcplugin.addDirectoryItems(int(sys.argv[1]), all_items, len(all_items))

@@ -1,3 +1,19 @@
+version 3.9.6 (beta only):
+- Fix Base.check_db() got an unexpected keyword argument 'check_by_guid' #2074
+
+version 3.9.5 (beta only):
+- Fix sync crashing with "plex_guid is not defined" #2072
+
+version 3.9.4 (beta only):
+- WARNING: You will need to reset the Kodi database!
+- Fix certain movie elements suddenly duplicating in library #2070
+
+version 3.9.3 (beta only):
+- Add Watchlist context menu commands (thanks @Spacetech) #2060
+- Sync Plex Labels (thanks @Spacetech) #2058
+- Fix nested folder navigation (thanks @Spacetech) #2063
+- Reduce database locking (thanks @Spacetech) #2061
+
 version 3.9.2 (beta only):
 - Fix getVideoInfoTag error (thanks @Spacetech) #2052
 - Automatically hide the skip button after some time (thanks @Spacetech) #2053
