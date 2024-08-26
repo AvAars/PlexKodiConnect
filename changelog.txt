@@ -1,3 +1,43 @@
+version 3.10.4:
+- Preliminary support for Kodi 22 Piers #2100
+- version 3.10.3 for everyone
+
+version 3.10.3 (beta only):
+- Ignore websocket messages for sections that are not being synced #2083 (thanks @Spacetech)
+- Remove transparent background for skip intro button #2082 (thanks @bakkerthehacker)
+- Delete some obsolete code #2076
+
+version 3.10.2:
+- Fix background sync breaking with AttributeError: 'str' object has no attribute 'double_urldecode' #2089
+
+version 3.10.1:
+- Fix auto skipping of e.g. intros or commercials getting stuck #2084
+
+version 3.10.0:
+- WARNING: You will need to reset the Kodi database!
+- Versions 3.9.1-3.9.6 for everyone
+
+version 3.9.6 (beta only):
+- Fix Base.check_db() got an unexpected keyword argument 'check_by_guid' #2074
+
+version 3.9.5 (beta only):
+- Fix sync crashing with "plex_guid is not defined" #2072
+
+version 3.9.4 (beta only):
+- WARNING: You will need to reset the Kodi database!
+- Fix certain movie elements suddenly duplicating in library #2070
+
+version 3.9.3 (beta only):
+- Add Watchlist context menu commands (thanks @Spacetech) #2060
+- Sync Plex Labels (thanks @Spacetech) #2058
+- Fix nested folder navigation (thanks @Spacetech) #2063
+- Reduce database locking (thanks @Spacetech) #2061
+
+version 3.9.2 (beta only):
+- Fix getVideoInfoTag error (thanks @Spacetech) #2052
+- Automatically hide the skip button after some time (thanks @Spacetech) #2053
+- Force a database reset, necessary due to #2041 #2054
+
 version 3.9.1 (beta only):
 - Add support for Plex Watchlist (thanks @Spacetech) #2041
 - Use InfoTagVideo to set list item data (thanks @Spacetech) #2040

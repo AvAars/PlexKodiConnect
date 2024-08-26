@@ -104,7 +104,7 @@ COMPANION_PORT = int(_ADDON.getSetting('companionPort'))
 PKC_MACHINE_IDENTIFIER = None
 
 # Minimal PKC version needed for the Kodi database - otherwise need to recreate
-MIN_DB_VERSION = '3.8.8'
+MIN_DB_VERSION = '3.9.4'
 
 DB_VIDEO_VERSION = None
 DB_VIDEO_PATH = None
@@ -705,7 +705,7 @@ def database_paths():
     Will raise RuntimeError if the current Kodi version is not supported or
     if a certain DB is not found.
     '''
-    if KODIVERSION not in (19, 20, 21):
+    if KODIVERSION not in (19, 20, 21, 22):
         raise RuntimeError(f'Kodiversion {KODIVERSION} not supported by PKC')
 
     thismodule = sys.modules[__name__]

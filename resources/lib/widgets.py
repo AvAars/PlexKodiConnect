@@ -176,7 +176,7 @@ def _generate_content(api):
                 'season': api.season_number(),
                 'sorttitle': api.sorttitle(),  # 'Titans (2018)'
                 'studio': api.studios(),
-                'tag': [],  # List of tags this item belongs to
+                'tag': api.labels(),  # List of tags this item belongs to
                 'tagline': api.tagline(),
                 'thumbnail': '',  # e.g. 'image://https%3a%2f%2fassets.tv'
                 'title': api.title(),  # 'Titans (2018)'
@@ -249,7 +249,7 @@ def _generate_content(api):
     return item
 
 
-def prepare_listitem(item):
+def prepare_listitem(item, listing_key = None):
     """helper to convert kodi output from json api to compatible format for
     listitems"""
     try:
@@ -315,6 +315,9 @@ def prepare_listitem(item):
         properties["DBTYPE"] = item["type"]
         properties["type"] = item["type"]
         properties["path"] = item.get("file")
+
+        if listing_key is not None:
+            properties["LISTINGKEY"] = listing_key
 
         # cast
         list_cast = []
@@ -472,6 +475,9 @@ def create_listitem(item, as_tuple=True, offscreen=True,
                     listitem=xbmcgui.ListItem):
     """helper to create a kodi listitem from kodi compatible dict with mediainfo"""
     try:
+        # PKCListItem does not implement getVideoInfoTag
+        use_tags_for_item = USE_TAGS and listitem == xbmcgui.ListItem
+
         liz = listitem(
             label=item.get("label", ""),
             label2=item.get("label2", ""),
@@ -493,7 +499,7 @@ def create_listitem(item, as_tuple=True, offscreen=True,
         # extra properties
         for key, value in item["extraproperties"].items():
             # some Video properties should be set via tags on newer kodi versions
-            if nodetype != "Video" or not USE_TAGS or key not in TAG_PROPERTIES:
+            if nodetype != "Video" or not use_tags_for_item or key not in TAG_PROPERTIES:
                 liz.setProperty(key, value)
 
         # video infolabels
@@ -519,6 +525,7 @@ def create_listitem(item, as_tuple=True, offscreen=True,
                 "sorttitle": item.get("sorttitle"),
                 "duration": item.get("duration"),
                 "studio": item.get("studio"),
+                "tag": item.get("tag"),
                 "tagline": item.get("tagline"),
                 "writer": item.get("writer"),
                 "tvshowtitle": item.get("tvshowtitle"),
@@ -539,7 +546,7 @@ def create_listitem(item, as_tuple=True, offscreen=True,
 
             # streamdetails
             if item.get("streamdetails"):
-                if USE_TAGS:
+                if use_tags_for_item:
                     tags = liz.getVideoInfoTag()
                     tags.addVideoStream(_create_VideoStreamDetail(item["streamdetails"].get("video", {})))
                     tags.addAudioStream(_create_AudioStreamDetail(item["streamdetails"].get("audio", {})))
@@ -555,7 +562,7 @@ def create_listitem(item, as_tuple=True, offscreen=True,
             if "date" in item:
                 infolabels["date"] = item["date"]
 
-            if USE_TAGS and "resumetime" in item["extraproperties"] and "totaltime" in item["extraproperties"]:
+            if use_tags_for_item and "resumetime" in item["extraproperties"] and "totaltime" in item["extraproperties"]:
                 tags = liz.getVideoInfoTag()
                 tags.setResumePoint(float(item["extraproperties"].get("resumetime")), float(item["extraproperties"].get("totaltime")));
 
@@ -598,7 +605,7 @@ def create_listitem(item, as_tuple=True, offscreen=True,
             infolabels["lastplayed"] = item["lastplayed"]
 
         # assign the infolabels
-        if USE_TAGS and nodetype == "Video":
+        if use_tags_for_item and nodetype == "Video":
             # filter out None valued properties
             infolabels = {k: v for k, v in infolabels.items() if v is not None}
 
