@@ -441,11 +441,14 @@ class Song(MusicMixin, ItemBase):
             # compilation not set
             artists = xml.get('originalTitle', api.grandparent_title())
         tracknumber = api.index() or 0
-        disc = api.disc_number() or 1
-        if disc == 1:
+        plex_disc_val = api.disc_number()  # Get the raw disc number from Plex (can be None)
+
+        if plex_disc_val is None:
+            # Single-disc album or disc number not specified by Plex
             track = tracknumber
         else:
-            track = disc * 2 ** 16 + tracknumber
+            # Multi-disc album, plex_disc_val is likely 1, 2, 3,...
+            track = (plex_disc_val * (2**16)) + tracknumber
         year = api.year()
         if not year and album_xml is not None:
             # Plex did not pass year info - get it from the parent album

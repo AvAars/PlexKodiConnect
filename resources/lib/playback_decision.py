@@ -213,12 +213,20 @@ def _must_transcode(api, item):
                      'of the media: %s, transcoding limit resolution: %s',
                      resolution, _getH265())
             return True
+    if 'av1' in codec:
+        if resolution >= _getAV1():
+            LOG.info('Option to transcode AV1 enabled. Resolution '
+                     'of the media: %s, transcoding limit resolution: %s',
+                     resolution, _getAV1())
+            return True
     return False
 
 
 def _transcode_quality():
+    bitrate = get_bitrate()
     return {
-        'maxVideoBitrate': get_bitrate(),
+        'videoBitrate': bitrate,
+        'maxVideoBitrate': bitrate,
         'videoResolution': get_resolution(),
         'videoQuality': 100,
         'mediaBufferSize': int(float(utils.settings('kodi_video_cache')) / 1024.0),
@@ -314,6 +322,23 @@ def _getH265():
         '4': 2160
     }
     return H265[utils.settings('transcodeH265')]
+
+
+def _getAV1():
+    """
+    Returns the user settings for transcoding av1: boundary resolutions
+    of 480, 720 or 1080 as an int
+
+    OR 2147483 (MAX_SIGNED_INT, int) if user chose not to transcode
+    """
+    AV1 = {
+        '0': MAX_SIGNED_INT,
+        '1': 480,
+        '2': 720,
+        '3': 1080,
+        '4': 2160
+    }
+    return AV1[utils.settings('transcodeAV1')]
 
 
 def audio_subtitle_prefs(api, item):
