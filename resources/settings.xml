@@ -1439,11 +1439,6 @@
                     <default>false</default>
                     <control type="toggle" />
                 </setting>
-                <setting id="TVShowWatched" type="boolean" label="39064" help=""> <!-- Recently Added: Also show already watched episodes -->
-                    <level>0</level>
-                    <default>true</default>
-                    <control type="toggle" />
-                </setting>
                 <setting id="RecentTvAppendShow" type="boolean" label="39059" help=""> <!-- Recently Added: Append show title to episode -->
                     <level>0</level>
                     <default>false</default>
@@ -1455,9 +1450,35 @@
                     <control type="toggle" />
                 </setting>
             </group>
-            <group id="4" />
-            <group id="5" label="30302"> <!-- Movies -->
-                <setting id="MovieShowWatched" type="boolean" label="39066" help=""> <!-- Recently Added: Also show already watched movies -->
+            <group id="4" label="39064"><!-- Show already watched shows/episodes -->
+                <setting id="RecentTvShowWatched" type="boolean" label="30174" help=""> <!--Recently Added-->
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle" />
+                </setting>
+                <setting id="RecommendedTvShowWatched" type="boolean" label="30230" help=""> <!--Recommended-->
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle" />
+                </setting>
+                <setting id="RandomTvShowWatched" type="boolean" label="30227" help=""> <!--Random-->
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle" />
+                </setting>
+            </group>
+            <group id="5" label="39066"> <!-- Show already watched movies -->
+                <setting id="RecentMovieShowWatched" type="boolean" label="30174" help=""> <!--Recently Added-->
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle" />
+                </setting>
+                <setting id="RecommendedMovieShowWatched" type="boolean" label="30230" help=""> <!--Recommended-->
+                    <level>0</level>
+                    <default>true</default>
+                    <control type="toggle" />
+                </setting>
+                <setting id="RandomMovieShowWatched" type="boolean" label="30227" help=""> <!--Random-->
                     <level>0</level>
                     <default>true</default>
                     <control type="toggle" />
